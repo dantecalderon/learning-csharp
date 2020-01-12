@@ -18,16 +18,21 @@ namespace CoreSchool.Entities
       set;
     }
 
-    public string Contry { get; set; }
+    public string Country { get; set; }
     public string City { get; set; }
 
     public SchoolType Type { get; set; }
 
     public School(string name, int creationDate) => (Name, CreationDate) = (name, creationDate);
 
+    public School(string name, int creationDate, SchoolType type, string country = "Peru")
+    {
+      (Name, CreationDate, Type, Country) = (name, creationDate, type, country);
+    }
+
     public override string ToString()
     {
-      return $"Nombre: {name} \nTipo: {Type}";
+      return $"Name: {name} \nType: {Type}\nCountry: {Country}";
     }
   }
 }
