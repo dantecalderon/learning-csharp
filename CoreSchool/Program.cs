@@ -1,4 +1,5 @@
 ﻿using System;
+using CoreSchool.Entities;
 
 namespace CoreSchool
 {
@@ -8,8 +9,9 @@ namespace CoreSchool
         {
             var mySchool = new CoreSchool.Entities.School("The Umbrella Academy", 1678);
             mySchool.Contry = "USA";
+            mySchool.Type = SchoolType.PreSchool;
 
-            Console.WriteLine("El nombre de la escuela es: " + mySchool.Name);
+            Console.WriteLine(mySchool);
         }
     }
 }
