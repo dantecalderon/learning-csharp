@@ -23,6 +23,8 @@ namespace CoreSchool.Entities
 
     public SchoolType Type { get; set; }
 
+    public Course[] Courses { get; set; }
+
     public School(string name, int creationDate) => (Name, CreationDate) = (name, creationDate);
 
     public School(string name, int creationDate, SchoolType type, string country = "Peru")

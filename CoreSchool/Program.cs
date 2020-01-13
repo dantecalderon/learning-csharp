@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreSchool.Entities;
+using static System.Console;
 
 namespace CoreSchool
 {
@@ -9,7 +10,7 @@ namespace CoreSchool
         {
             var mySchool = new CoreSchool.Entities.School("The Umbrella Academy", 1678, SchoolType.PreSchool);
 
-            var courses = new Course[3]{
+            mySchool.Courses = new Course[] {
                 new Course() {
                     Name = "101"
                 },
@@ -17,20 +18,33 @@ namespace CoreSchool
                     Name = "256"
                 },
                 new Course {
-                    Name = "512"
+                    Name = "512" 
                 }
             };
+            mySchool = null;
 
-            Console.WriteLine(mySchool);
-            Console.WriteLine(new String('=', 40));
-            PrintCourses(courses);
+            WriteLine(mySchool);
+            PrintSchoolCourses(mySchool);
+        }
+
+        private static void PrintSchoolCourses(School school)
+        {
+            if(school?.Courses != null) {
+                WriteLine(new String('=', 40));
+                WriteLine($"{school.Name} Courses");
+                WriteLine(new String('=', 40));
+                foreach (var course in school.Courses)
+                {
+                    WriteLine($"{course.Name}, {course.UniqueId}");
+                }
+            }
         }
 
         private static void PrintCourses(Course[] courses)
         {   
             foreach (var course in courses)
             {
-                Console.WriteLine($"{course.Name}, {course.UniqueId}");
+                WriteLine($"{course.Name}, {course.UniqueId}");
             }
         }
     }
