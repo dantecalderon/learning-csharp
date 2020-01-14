@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreSchool.Entities;
 using static System.Console;
 
@@ -10,7 +11,7 @@ namespace CoreSchool
         {
             var mySchool = new CoreSchool.Entities.School("The Umbrella Academy", 1678, SchoolType.PreSchool);
 
-            mySchool.Courses = new Course[] {
+            mySchool.Courses = new List<Course>(){
                 new Course() {
                     Name = "101"
                 },
@@ -19,15 +20,31 @@ namespace CoreSchool
                 },
                 new Course {
                     Name = "512" 
+                },
+                new Course {
+                    Name = "990" 
                 }
             };
-            mySchool = null;
+
+            Course tmp = new Course {
+                Name = "Temoral"
+            };
+            mySchool.Courses.Add(tmp);
+
+            mySchool.Courses.Remove(tmp);
+
+            mySchool.Courses.RemoveAll(Condition);
 
             WriteLine(mySchool);
             PrintSchoolCourses(mySchool);
         }
 
-        private static void PrintSchoolCourses(School school)
+    private static bool Condition(Course obj)
+    {
+        return obj.Name == "990";
+    }
+
+    private static void PrintSchoolCourses(School school)
         {
             if(school?.Courses != null) {
                 WriteLine(new String('=', 40));

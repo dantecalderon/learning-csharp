@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CoreSchool.Entities
 {
   class School
@@ -23,7 +25,7 @@ namespace CoreSchool.Entities
 
     public SchoolType Type { get; set; }
 
-    public Course[] Courses { get; set; }
+    public List<Course> Courses { get; set; }
 
     public School(string name, int creationDate) => (Name, CreationDate) = (name, creationDate);
 
