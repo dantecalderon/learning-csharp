@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreSchool.Entities;
+using CoreSchool.Util;
 using static System.Console;
 
 namespace CoreSchool
@@ -21,9 +22,7 @@ namespace CoreSchool
     private static void PrintSchoolCourses(School school)
         {
             if(school?.Courses != null) {
-                WriteLine(new String('=', 40));
-                WriteLine($"{school.Name} Courses");
-                WriteLine(new String('=', 40));
+                Printer.WriteTitle($"* {school.Name} Courses *");
                 foreach (var course in school.Courses)
                 {
                     WriteLine($"{course.Name}, {course.UniqueId}");

@@ -14,7 +14,11 @@ namespace CoreSchool
         public void Init()
         {
             School = new School("The Umbrella Academy", 1678, SchoolType.PreSchool);
-
+            LoadCourses();  
+        }
+        
+        private void LoadCourses()
+        {
             School.Courses = new List<Course>()
             {
                 new Course() {
