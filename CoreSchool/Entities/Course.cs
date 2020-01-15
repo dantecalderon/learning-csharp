@@ -11,6 +11,7 @@ namespace CoreSchool.Entities
 
         public List<Subject> Subjects { get; set; }
         public List<Student> Students { get; set; }
+        public List<Exam> Exams { get; set; }
         public Course()  => (UniqueId) = (Guid.NewGuid().ToString());
     }
 }

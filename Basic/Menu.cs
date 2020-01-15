@@ -26,6 +26,12 @@ namespace Basic
       Console.WriteLine("\n\nThanks for use this software :)");
     }
 
+    private void ConfigConsole()
+    {
+        // Colors not works on Linux, I think
+        Console.BackgroundColor = ConsoleColor.Blue;
+    }
+
     private char ShowMenu()
     {
       Console.WriteLine("          MENU\n");
@@ -60,7 +66,7 @@ namespace Basic
       Console.Write("\nEnter Second Number(B): ");
       string bString = Console.ReadLine();
       int A = Int32.Parse(aString);
-      int B = Int32.Parse(bString);
+      int B = int.Parse(bString);
       Console.WriteLine($"\nThe sum is: {A + B}");
     }
 
